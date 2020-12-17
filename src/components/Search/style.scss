@@ -1,0 +1,34 @@
+.search-box {
+  width: 100%;
+  margin: 0 0 75px;
+
+  .search-bar {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+
+    appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
+    border-radius: 0px 0px 1rem 1rem;
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2);
+
+    font-size: 1rem;
+
+    transition: 0.4s ease;
+
+    &:focus {
+      background-color: scale-color(rgba(255, 255, 255, 0.75));
+      &::placeholder {
+        color: #313131;
+      }
+    }
+    &::placeholder {
+      color: rgb(185, 185, 185);
+    }
+  }
+}

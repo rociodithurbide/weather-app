@@ -1,0 +1,19 @@
+.weather-box {
+  text-align: center;
+  color: #dfdfdf;
+  // background-color: rgba(0, 0, 0, 0.2);
+  // backdrop-filter: blur(15px);
+  // padding: 2rem;
+  // border-radius: 1rem;
+  .temp {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+  }
+  .weather {
+    font-size: 1.8rem;
+    margin-bottom: 1.4rem;
+  }
+  .weatherDescription {
+    font-style: italic;
+  }
+}
