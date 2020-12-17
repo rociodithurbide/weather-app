@@ -74,7 +74,7 @@ function App() {
     setSearch(inputValue);
   }
   function handleOnKeyDown(keyCode) {
-    if (keyCode === 13) {
+    if (keyCode === 13 && search !== "") {
       fetchData();
     }
   }
@@ -86,6 +86,7 @@ function App() {
           <Search
             handleCallback={handleSearch}
             handleOnKeyDown={handleOnKeyDown}
+            value={search}
           />
           <Location location={weatherData.name} country={weatherData.country} />
           <div className="dateTime">

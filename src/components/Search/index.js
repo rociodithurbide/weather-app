@@ -17,6 +17,7 @@ function Search(props) {
         placeholder="Search..."
         onChange={handleChange}
         onKeyDown={handleKeyDown}
+        value={props.value}
       />
     </div>
   );
