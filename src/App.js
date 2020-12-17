@@ -12,30 +12,20 @@ const api = {
 };
 
 function App() {
-  const [time, setTime] = useState(new Date());
   const [weatherData, setWeatherData] = useState({});
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("Buenos Aires");
 
   useEffect(() => {
     fetchData();
-    const timer = setInterval(() => setTime(new Date()), 1000);
-    return function cleanup() {
-      clearInterval(timer);
-    };
   }, []);
 
   async function fetchData() {
     const getData = await fetch(
-      `${api.base}weather?q=London,uk&units=metric&APPID=${api.key}`
+      `${api.base}weather?q=${search}&units=metric&APPID=${api.key}`
     );
     const json = await getData.json();
 
     console.log(json);
-    // console.log(json.name);
-    // console.log(json.sys.country);
-    // console.log(json.main.temp);
-    // console.log(json.weather[0].main);
-    // console.log(json.weather[0].description);
 
     const weatherDatas = {
       name: json.name,
@@ -47,9 +37,6 @@ function App() {
     setWeatherData(weatherDatas);
     setSearch("");
   }
-
-  const hours = time.getHours();
-  const mins = time.getMinutes();
 
   const dateBuilder = (d) => {
     let months = [
@@ -84,7 +71,6 @@ function App() {
   };
 
   function handleSearch(inputValue) {
-    console.log(inputValue);
     setSearch(inputValue);
   }
   function handleOnKeyDown(keyCode) {
@@ -103,9 +89,7 @@ function App() {
           />
           <Location location={weatherData.name} country={weatherData.country} />
           <div className="dateTime">
-            <p className="time">
-              {dateBuilder(new Date())}, {hours}:{mins}
-            </p>
+            <p className="time">{dateBuilder(new Date())}</p>
           </div>
           <Weather
             temperature={weatherData.temp}
